@@ -1,0 +1,10 @@
+INSERT INTO `Emart_Project`.`migrations` (`id`,`migration`,`batch`) VALUES ('1','2014_10_12_000000_create_users_table','1');
+INSERT INTO `Emart_Project`.`migrations` (`id`,`migration`,`batch`) VALUES ('2','2014_10_12_100000_create_password_resets_table','1');
+INSERT INTO `Emart_Project`.`migrations` (`id`,`migration`,`batch`) VALUES ('3','2019_08_19_000000_create_failed_jobs_table','1');
+INSERT INTO `Emart_Project`.`migrations` (`id`,`migration`,`batch`) VALUES ('4','2019_12_14_000001_create_personal_access_tokens_table','1');
+INSERT INTO `Emart_Project`.`migrations` (`id`,`migration`,`batch`) VALUES ('5','2022_09_14_154804_create_categories_table','2');
+INSERT INTO `Emart_Project`.`migrations` (`id`,`migration`,`batch`) VALUES ('6','2022_09_15_051206_create_brands_table','3');
+INSERT INTO `Emart_Project`.`migrations` (`id`,`migration`,`batch`) VALUES ('8','2022_09_15_080706_create_products_table','4');
+INSERT INTO `Emart_Project`.`migrations` (`id`,`migration`,`batch`) VALUES ('9','2022_09_15_155534_create_customers_table','5');
+INSERT INTO `Emart_Project`.`migrations` (`id`,`migration`,`batch`) VALUES ('10','2022_09_20_055159_create_sliders_table','6');
+INSERT INTO `Emart_Project`.`migrations` (`id`,`migration`,`batch`) VALUES ('12','2022_09_24_035545_create_cart_table','7');

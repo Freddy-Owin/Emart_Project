@@ -1,0 +1,11 @@
+INSERT INTO `Emart_Project`.`brands` (`id`,`name`,`deleted_at`,`created_at`,`updated_at`) VALUES ('1','Lenovo',NULL,'2022-09-15 07:37:33','2022-09-15 07:37:33');
+INSERT INTO `Emart_Project`.`brands` (`id`,`name`,`deleted_at`,`created_at`,`updated_at`) VALUES ('2','ASUS',NULL,'2022-09-15 07:37:51','2022-09-15 07:37:51');
+INSERT INTO `Emart_Project`.`brands` (`id`,`name`,`deleted_at`,`created_at`,`updated_at`) VALUES ('3','Rolex',NULL,'2022-09-15 07:38:20','2022-09-15 07:38:20');
+INSERT INTO `Emart_Project`.`brands` (`id`,`name`,`deleted_at`,`created_at`,`updated_at`) VALUES ('4','Adidas',NULL,'2022-09-15 07:38:27','2022-09-15 07:45:04');
+INSERT INTO `Emart_Project`.`brands` (`id`,`name`,`deleted_at`,`created_at`,`updated_at`) VALUES ('5','Apple',NULL,'2022-09-15 07:38:35','2022-09-15 07:44:42');
+INSERT INTO `Emart_Project`.`brands` (`id`,`name`,`deleted_at`,`created_at`,`updated_at`) VALUES ('6','Tommy Hilfiger',NULL,'2022-09-15 07:49:27','2022-09-15 07:49:27');
+INSERT INTO `Emart_Project`.`brands` (`id`,`name`,`deleted_at`,`created_at`,`updated_at`) VALUES ('7','Monika Wood Furniture',NULL,'2022-09-15 07:51:28','2022-09-15 07:51:28');
+INSERT INTO `Emart_Project`.`brands` (`id`,`name`,`deleted_at`,`created_at`,`updated_at`) VALUES ('8','Vivek Wood',NULL,'2022-09-15 07:54:23','2022-09-15 07:54:23');
+INSERT INTO `Emart_Project`.`brands` (`id`,`name`,`deleted_at`,`created_at`,`updated_at`) VALUES ('9','FORSINING',NULL,'2022-09-15 07:55:35','2022-09-15 07:55:35');
+INSERT INTO `Emart_Project`.`brands` (`id`,`name`,`deleted_at`,`created_at`,`updated_at`) VALUES ('10','LEVI''S',NULL,'2022-09-15 07:55:47','2022-09-15 07:55:47');
+INSERT INTO `Emart_Project`.`brands` (`id`,`name`,`deleted_at`,`created_at`,`updated_at`) VALUES ('11','Samsung',NULL,'2022-09-15 07:56:00','2022-09-15 07:56:00');
