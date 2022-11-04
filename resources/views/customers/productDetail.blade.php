@@ -19,6 +19,13 @@
                             <h5 class="card-title">Name : {{ $product->name }}</h5>
                             <p class="card-text">Description : {{ $product->description }}</p>
                             <p class="card-text">Price : $ {{ $product->price }}</p>
+                            <button onclick="reduceQty()" class="btn btn-sm btn-outline-dark">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                                <input type="number" id="qty" value="1" readonly>
+                            <button onclick="addQty()" class="btn btn-sm btn-outline-dark">
+                                <i class="fas fa-plus"></i>
+                            </button>
                         </div>
                         <div class="card-footer">
                             <button onclick="addToCart({{ $product->id }})" href="" class="btn btn-sm btn-outline-success">
@@ -37,26 +44,39 @@
 
 @section('script')
 <script>
+function reduceQty() {
+    if(+ $('#qty').val() > 1) {
+        let qty = + $('#qty').val() - 1;
+        $('#qty').val(qty);
+    }
+}
+
+function addQty() {
+    let qty = + $('#qty').val() + 1;
+    $('#qty').val(qty);
+}
 
 function addToCart(id) {
+
     $.ajax({
         url : '/addToCart',
         method: 'POST',
         data: {
             _token: "{{ csrf_token()}}",
-            product_id: id
+            product_id: id,
+            qty: $('#qty').val(),
         },
         success: function(data) {
             if(data.success){
-                alert('U added to cart')
-            } else {
-                alert('U already added' );
-
+                alert('Your cart is saved!')
             }
             // console.log(data);
         },
         error: function(data){
-            alert('You need to login!');
+            if(confirm('You need to login!')){
+                location.href = '/customer/login';
+            }
+
         }
     })
 }

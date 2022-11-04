@@ -6,6 +6,7 @@ use App\Models\Slider;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -25,9 +26,15 @@ class FrontendController extends Controller
         {
             $sliders = Slider::all();
             $products = auth('customer')->user()->carts;
+            $total = $products->reduce(function( $carry, $product){
+                return ($product->price * $product->pivot->quantity) + $carry;
+            });
+            $quantities = $products->reduce(function( $carry, $product){
+                return $product->pivot->quantity + $carry;
+            });
             $brands = Brand::all();
             $categories = Category::all();
-            return view('customers.carts', compact('products', 'brands', 'categories', 'sliders'));
+            return view('customers.carts', compact('products', 'brands', 'categories', 'sliders', 'total', 'quantities'));
         }
         else
         {
@@ -74,4 +81,6 @@ class FrontendController extends Controller
         $categories = Category::all();
         return view('customers.productDetail', compact('brands', 'products', 'categories', 'product'));
     }
+
+    
 }

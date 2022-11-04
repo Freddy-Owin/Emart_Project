@@ -21,6 +21,10 @@ class Customer extends Authenticatable
      */
     public function carts()
     {
-        return $this->belongsToMany(Product::class, 'cart', 'customer_id', 'product_id')->withPivot('quantity');
+        return $this->belongsToMany(Product::class, 'cart', 'customer_id', 'product_id')->withPivot('quantity','id');
+    }
+
+    public function order() {
+        return $this->hasMany(Order::class, 'customer_id');
     }
 }

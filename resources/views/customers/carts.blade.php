@@ -11,6 +11,13 @@
             {{ session('deleted') }}
         </div>
     @endif
+
+    @if (session('success'))
+        <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+        </div>
+    @endif
+    {{-- {{ dd($products) }} --}}
     <div class="container mt-3 mb-5">
         <div class="row justify-content-center">
             <div class="col-12">
@@ -24,6 +31,8 @@
                                 <tr>
                                     <th>Image</th>
                                     <th>Name</th>
+                                    <th>Unit Price</th>
+                                    <th>Quantity</th>
                                     <th>Price</th>
                                 </tr>
                             </thead>
@@ -40,9 +49,10 @@
                                         $ {{ $product->price }}
                                     </td>
                                     <td>
-                                        <a href="" class="btn btn-sm btn-outline-info">
-                                            <i class="fa-sharp fa-solid fa-cart-arrow-down p-1"></i>Order Now
-                                        </a>
+                                        {{ $product->pivot->quantity }}
+                                    </td>
+                                    <td>
+                                        $ {{ $product->price * $product->pivot->quantity }}
                                     </td>
                                     <td>
                                         <form action="{{ route('cart-delete', $product->id) }}" method="POST">
@@ -54,8 +64,19 @@
                                         </form>
                                     </td>
                                 </tr>
-
                                 @endforeach
+                                <tr>
+                                    <td colspan="3">Total</td>
+                                    <td>
+                                        {{ $quantities }}
+                                    </td>
+                                    <td>
+                                        $ {{ $total }}
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('order-view') }}" class="btn btn-outline-info btn-sm">Order Now</a>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Cart;
 use App\Models\Customer;
 use App\Models\Product;
@@ -82,6 +83,11 @@ class CustomerController extends Controller
 
     }
 
+    public function history()
+    {
+        return Order::where('customer_id', auth('customer')->user()->id)->get();
+    }
+
     public function addToCart(Request $request)
     {
         if(auth('customer')->check()) {
@@ -94,16 +100,18 @@ class CustomerController extends Controller
 
                 $cart->product_id = $request->product_id;
                 $cart->customer_id = auth('customer')->user()->id;
-                $cart->quantity = 1;
+                $cart->quantity = request('qty')??1;
                 $cart->save();
                 return response()->json([
                     'cart' => $cart,
                     'success' => true
                 ], 200);
             } else {
+                $cart->quantity = $request->qty??1;
+                $cart->save();
                 return response()->json([
                     'cart' => $cart,
-                    'success' => false
+                    'success' => true,
                 ], 200);
             }
         }
@@ -115,10 +123,11 @@ class CustomerController extends Controller
         }
     }
 
-    public function cartDelete(Cart $cart)
+    public function cartDelete($id)
     {
-        $cart->delete();
+        Cart::where([['product_id', $id], ['customer_id', auth('customer')->user()->id]])->delete();
         return redirect()->route('carts')->with('deleted', 'Your cart has been removed successfully!');
     }
+
 
 }

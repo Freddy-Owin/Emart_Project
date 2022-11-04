@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SliderController;
 use App\Models\Customer;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,7 @@ Route::prefix('admin')->middleware('auth.basic')->group(function () {
     Route::resource('products', ProductController::class);
     Route::resource('sliders', SliderController::class);
     Route::get('/customers', [AdminController::class, 'customers'])->name('customers-view');
+    Route::get('/orders', [AdminController::class, 'orders'])->name('orders');
 });
 
 Route::prefix('customer')->middleware('guest:customer')->name('customer.')->group(function () {
@@ -60,8 +62,13 @@ Route::get('/categories/{category}', [FrontendController::class,'categorySelect'
 
 Route::post('/addToCart', [CustomerController::class, 'addToCart'])->name('product.add-to-cart');
 
-Route::delete('/cartDelete/{cart}', [CustomerController::class, 'cartDelete'])->name('cart-delete');
+Route::delete('/cartDelete/{id}', [CustomerController::class, 'cartDelete'])->name('cart-delete');
 
+Route::get('/order', [OrderController::class, 'orderView'])->middleware('customer')->name('order-view');
+
+Route::post('/order', [OrderController::class, 'order'])->middleware('customer')->name('order');
+
+Route::get('/orderHistory', [CustomerController::class, 'history'])->middleware('customer')->name('order-history');
 
 
 

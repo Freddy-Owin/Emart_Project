@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Customer;
 use App\Models\Brand;
 use App\Models\Category;
@@ -25,5 +26,11 @@ class AdminController extends Controller
     {
         $customers = Customer::all();
         return view('admin.dashboard.customers', compact('customers'));
+    }
+
+    public function orders()
+    {
+        $orders = Order::all();
+        return view('admin.dashboard.order', compact('orders'));
     }
 }
