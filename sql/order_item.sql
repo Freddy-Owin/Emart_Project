@@ -1,0 +1,5 @@
+INSERT INTO `Emart_Project`.`order_items` (`id`,`order_id`,`product_id`,`unit_price`,`quantity`,`price`,`amount`,`created_at`,`updated_at`) VALUES ('1','2','9','199','4','796','796','2022-10-30 06:52:42','2022-10-30 06:52:42');
+INSERT INTO `Emart_Project`.`order_items` (`id`,`order_id`,`product_id`,`unit_price`,`quantity`,`price`,`amount`,`created_at`,`updated_at`) VALUES ('2','2','6','15','4','60','60','2022-10-30 06:52:42','2022-10-30 06:52:42');
+INSERT INTO `Emart_Project`.`order_items` (`id`,`order_id`,`product_id`,`unit_price`,`quantity`,`price`,`amount`,`created_at`,`updated_at`) VALUES ('3','4','8','49','4','196','196','2022-10-30 07:00:46','2022-10-30 07:00:46');
+INSERT INTO `Emart_Project`.`order_items` (`id`,`order_id`,`product_id`,`unit_price`,`quantity`,`price`,`amount`,`created_at`,`updated_at`) VALUES ('4','4','9','199','4','796','796','2022-10-30 07:00:46','2022-10-30 07:00:46');
+INSERT INTO `Emart_Project`.`order_items` (`id`,`order_id`,`product_id`,`unit_price`,`quantity`,`price`,`amount`,`created_at`,`updated_at`) VALUES ('5','5','8','49','4','196','196','2022-10-30 07:22:47','2022-10-30 07:22:47');
